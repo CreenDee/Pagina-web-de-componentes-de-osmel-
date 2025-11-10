@@ -1,285 +1,279 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware de Computadoras</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hardware de Computadoras</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1a1a1a;
-            color: #fff;
-        }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
 
-        header {
-            height: 50vh !important;
-            background: url(Ima/componentes.jpg) no-repeat center center;
-            background-size: cover;
-            color: rgb(255, 255, 255);
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-        }
+    header {
+      height: 50vh !important;
+      background: url(Ima/componentes.jpg) no-repeat center center;
+      background-size: cover;
+      color: rgb(255, 255, 255);
+      padding: 60px 0;
+      text-align: center;
+      position: relative;
+    }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
 
-        header h1 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2.5em;
-            color: #f44336;
-            position: relative;
-            z-index: 2;
-        }
+    header h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.5em;
+      color: #f44336;
+      position: relative;
+      z-index: 2;
+    }
 
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
 
-        nav a {
-            color: #fff;
-            margin: 0 10px;
-            text-decoration: none;
-        }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
 
-        .container {
-            padding: 20px;
-        }
+    .container {
+      padding: 20px;
+    }
 
-        h2 {
-            color: #00bcd4;
-            background-color: #212121;
-            padding: 10px 20px;
-            border-radius: 10px;
-            border: 2px solid #00bcd4;
-        }
-        h3 {
-            text-align: center;
-            color: #00bcd4;
-            background-color: #212121;
-            padding: 10px 20px;
-            border-radius: 10px;
-            border: 2px solid #00bcd4;
-        }
-        h4 {
-            text-align: center;
-            color: #00bcd4;
-            background-color: #212121;
-            padding: 10px 20px;
-            border-radius: 10px;
-            border: 2px solid #00bcd4;
-        }
+    h2 {
+      color: #00bcd4;
+      background-color: #212121;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 2px solid #00bcd4;
+    }
 
-        .component {
-            background-color: #333;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgb(0, 0, 0);
-        }
+    h3, h4 {
+      text-align: center;
+      color: #00bcd4;
+      background-color: #212121;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 2px solid #00bcd4;
+    }
 
-        .component a {
-            display: inline-block;
-            color: #fff;
-            background-color: #f44336;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgb(0, 0, 0);
-        }
+    .component {
+      background-color: #333;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgb(0, 0, 0);
+    }
 
-        .installation {
-            display: none;
-            text-align: left;
-            background-color: #212121;
-            color: #fff;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
+    .component a {
+      display: inline-block;
+      color: #fff;
+      background-color: #f44336;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgb(0, 0, 0);
+    }
 
-        .image-container {
-            text-align: center;
-            margin: 20px 0;
-        }
+    .installation {
+      display: none;
+      text-align: left;
+      background-color: #212121;
+      color: #fff;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
 
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    figure {
+      text-align: center;
+      margin: 20px 0;
+    }
 
-        figure {
-            text-align: center;
-            margin: 20px 0;
-        }
+    figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-        figure img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-    </style>
+    .lang-selector {
+      text-align: right;
+      padding: 10px;
+      background-color: #222;
+    }
 
-    <script>
-        function toggleInstallation(id) {
-            const installationDiv = document.getElementById(id);
-            if (installationDiv.style.display === "none") {
-                installationDiv.style.display = "block";
-            } else {
-                installationDiv.style.display = "none";
-            }
-        }
-    </script>
+    select {
+      background: #333;
+      color: #fff;
+      border: 1px solid #00bcd4;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-    <h1>HARDWARE DE LA COMPUTADORA</h1>
-</header>
+  <div class="lang-selector">
+    🌍 <label for="language">Idioma:</label>
+    <select id="language">
+      <option value="es">Español</option>
+      <option value="en">English</option>
+      <option value="ru">Русский</option>
+    </select>
+  </div>
 
-<nav>
-    <a href="#cpu">CPU</a>
-    <a href="#gpu">GPU</a>
-    <a href="#ram">RAM</a>
-    <a href="#motherboard">Targeta Madre</a>
-    <a href="#storage">Almacenamiento</a>
-    <a href="#power-supply">Fuente de Poder</a>
-</nav>
+  <header>
+    <h1 id="title">HARDWARE DE LA COMPUTADORA</h1>
+  </header>
 
-<h4>Principales variantes de gabinetes de computadoras</h4>
-<figure><img src="Ima/case.jpg" height="220px" width="100%" alt="case.jpg"></figure>
+  <nav>
+    <a href="#cpu" id="nav-cpu">CPU</a>
+    <a href="#gpu" id="nav-gpu">GPU</a>
+    <a href="#ram" id="nav-ram">RAM</a>
+    <a href="#motherboard" id="nav-motherboard">Tarjeta Madre</a>
+    <a href="#storage" id="nav-storage">Almacenamiento</a>
+    <a href="#power-supply" id="nav-power">Fuente de Poder</a>
+  </nav>
 
-<div class="container">
+  <h4 id="subtitle">Principales variantes de gabinetes de computadoras</h4>
+  <figure><img src="Ima/case.jpg" height="220px" width="100%" alt="case.jpg"></figure>
 
-    <!-- CPU -->
+  <div class="container">
+
     <section id="cpu" class="component">
-        <h2>CPU (Unidad Central de Procesamiento)</h2>
-        <p>La CPU es el cerebro de la computadora, responsable de realizar todas las operaciones y cálculos...</p>
-        <a href="javascript:void(0);" onclick="toggleInstallation('cpu-installation')">¿Cómo instalar la CPU?</a>
-        <div id="cpu-installation" class="installation">
-            <h3>Instrucciones de Instalación de la CPU</h3>
-            <ol>
-                <li>Tenemos que tomar desde el punto de vista que estamos ensamblando una computadora no desde cero.</li>
-                <li>Primero colocamos la tarjeta madre en un lugar cómodo...</li>
-                <li>Localiza el socket de la CPU en la placa base.</li>
-                <li>Levanta la palanca del socket e inserta la CPU con cuidado, alineando los pines.</li>
-                <li>Cierra la palanca y aplica la pasta térmica en la CPU.</li>
-                <li>Instala el disipador de calor y el ventilador encima de la CPU.</li>
-                <li>Cierra la carcasa y enciende la computadora.</li>
-            </ol>
-            <figure><img src="Ima/cpu1.jpg" height="220px" width="100%" alt="cpu1.jpg"></figure>
-            <figure><img src="Ima/cpu2.jpg" height="220px" width="100%" alt="cpu2.jpg"></figure>
-        </div>
-        <figure><img src="Ima/cpu.jpg" height="220px" width="100%" alt="cpu.jpg"></figure>
+      <h2 id="cpu-title">CPU (Unidad Central de Procesamiento)</h2>
+      <p id="cpu-desc">La CPU es el cerebro de la computadora, responsable de realizar todas las operaciones y cálculos...</p>
     </section>
 
-    <!-- GPU -->
     <section id="gpu" class="component">
-        <h2>GPU (Unidad de Procesamiento Gráfico)</h2>
-        <p>La GPU se encarga del procesamiento de gráficos y es esencial para tareas como el gaming...</p>
-        <a href="javascript:void(0);" onclick="toggleInstallation('gpu-installation')">¿Cómo instalar la GPU?</a>
-        <div id="gpu-installation" class="installation">
-            <h3>Instrucciones de Instalación de la GPU</h3>
-            <ol>
-                <li>Apaga y desenchufa la computadora.</li>
-                <li>Abre la carcasa y localiza la ranura PCIe.</li>
-                <li>Inserta la GPU en la ranura PCIe y asegúrala con un tornillo.</li>
-                <li>Conecta los cables de alimentación necesarios.</li>
-                <li>Instala los controladores desde el sitio del fabricante.</li>
-            </ol>
-            <figure><img src="Ima/grafica.jpeg" height="220px" width="100%" alt="grafica.jpeg"></figure>
-        </div>
-        <figure><img src="Ima/asusrogstrix4090.jpg" height="220px" width="100%" alt="asusrogstrix4090.jpg"></figure>
+      <h2 id="gpu-title">GPU (Unidad de Procesamiento Gráfico)</h2>
+      <p id="gpu-desc">La GPU se encarga del procesamiento de gráficos y es esencial para tareas como el gaming...</p>
     </section>
 
-    <!-- RAM -->
     <section id="ram" class="component">
-        <h2>RAM (Memoria de Acceso Aleatorio)</h2>
-        <p>La RAM es la memoria de corto plazo de la computadora...</p>
-        <a href="javascript:void(0);" onclick="toggleInstallation('ram-installation')">¿Cómo instalar la RAM?</a>
-        <div id="ram-installation" class="installation">
-            <h3>Instrucciones de Instalación de la RAM</h3>
-            <ol>
-                <li>Apaga y desenchufa la computadora.</li>
-                <li>Abre la carcasa y localiza las ranuras de RAM.</li>
-                <li>Abre los clips e inserta el módulo hasta que encaje.</li>
-            </ol>
-            <figure><img src="Ima/ram.jpg" height="220px" width="100%" alt="ram.jpg"></figure>
-        </div>
-        <figure><img src="Ima/ramde.jpg" height="220px" width="100%" alt="ramde.jpg"></figure>
+      <h2 id="ram-title">RAM (Memoria de Acceso Aleatorio)</h2>
+      <p id="ram-desc">La RAM es la memoria de corto plazo de la computadora...</p>
     </section>
 
-    <!-- MOTHERBOARD -->
     <section id="motherboard" class="component">
-        <h2>Motherboard (Tarjeta Madre)</h2>
-        <p>La motherboard conecta todos los componentes de la computadora...</p>
-        <a href="javascript:void(0);" onclick="toggleInstallation('motherboard-installation')">¿Cómo instalar la Motherboard?</a>
-        <div id="motherboard-installation" class="installation">
-            <h3>Instrucciones de Instalación de la Motherboard</h3>
-            <ol>
-                <li>Abre la carcasa y coloca la motherboard alineada.</li>
-                <li>Asegúrala con tornillos y conecta los cables de alimentación.</li>
-            </ol>
-            <figure><img src="Ima/s9-u05-05-product-shot-motherboard-original-rwd.jpg.rendition.intel.web.1920.1080.jpg" height="220px" width="100%" alt="motherboard"></figure>
-        </div>
-        <figure><img src="Ima/madre.jpeg" height="220px" width="100%" alt="madre.jpg"></figure>
+      <h2 id="motherboard-title">Motherboard (Tarjeta Madre)</h2>
+      <p id="motherboard-desc">La motherboard conecta todos los componentes de la computadora...</p>
     </section>
 
-    <!-- STORAGE -->
     <section id="storage" class="component">
-        <h2>Almacenamiento</h2>
-        <p>El almacenamiento guarda los datos de la computadora...</p>
-        <a href="javascript:void(0);" onclick="toggleInstallation('storage-installation')">¿Cómo instalar el almacenamiento?</a>
-        <div id="storage-installation" class="installation">
-            <h3>Instrucciones de Instalación del Almacenamiento</h3>
-            <ol>
-                <li>Abre la carcasa y localiza la bahía o ranura M.2.</li>
-                <li>Conecta los cables o atornilla el SSD/HDD según corresponda.</li>
-            </ol>
-            <figure><img src="Ima/s9-u05-33-install-storage-original-rwd.jpg.rendition.intel.web.1072.603.jpg" height="220px" width="100%" alt="almacenamiento"></figure>
-        </div>
-        <figure><img src="Ima/m2.jpg" height="220px" width="100%" alt="m2.jpg"></figure>
+      <h2 id="storage-title">Almacenamiento</h2>
+      <p id="storage-desc">El almacenamiento guarda los datos de la computadora...</p>
     </section>
 
-    <!-- POWER SUPPLY -->
     <section id="power-supply" class="component">
-        <h2>Fuente de Poder</h2>
-        <p>La fuente de poder suministra energía eléctrica a los componentes...</p>
-        <a href="javascript:void(0);" onclick="toggleInstallation('power-supply-installation')">¿Cómo instalar la Fuente de Poder?</a>
-        <div id="power-supply-installation" class="installation">
-            <h3>Instrucciones de Instalación de la Fuente de Poder</h3>
-            <ol>
-                <li>Coloca la fuente en su bahía y asegúrala con tornillos.</li>
-                <li>Conecta los cables de 24 y 8 pines a la motherboard.</li>
-            </ol>
-            <figure><img src="Ima/fuenteinstalando.jpg" height="220px" width="100%" alt="fuenteinstalando.jpg"></figure>
-        </div>
-        <figure><img src="Ima/fuentee.jpg" height="220px" width="100%" alt="fuentee.jpg"></figure>
+      <h2 id="power-title">Fuente de Poder</h2>
+      <p id="power-desc">La fuente de poder suministra energía eléctrica a los componentes...</p>
     </section>
+  </div>
 
-</div>
+  <figure><img src="Ima/pc gamer.jpg" height="220px" width="100%" alt="pc gamer.jpg"></figure>
 
-<figure><img src=" Ima/pc gamer.jpg" height="220px" width="100%" alt="pc gamer.jpg"></figure>
+  <script>
+    const translations = {
+      es: {
+        title: "HARDWARE DE LA COMPUTADORA",
+        subtitle: "Principales variantes de gabinetes de computadoras",
+        nav: ["CPU", "GPU", "RAM", "Tarjeta Madre", "Almacenamiento", "Fuente de Poder"],
+        cpu: ["CPU (Unidad Central de Procesamiento)", "La CPU es el cerebro de la computadora, responsable de realizar todas las operaciones y cálculos..."],
+        gpu: ["GPU (Unidad de Procesamiento Gráfico)", "La GPU se encarga del procesamiento de gráficos y es esencial para tareas como el gaming..."],
+        ram: ["RAM (Memoria de Acceso Aleatorio)", "La RAM es la memoria de corto plazo de la computadora..."],
+        motherboard: ["Motherboard (Tarjeta Madre)", "La motherboard conecta todos los componentes de la computadora..."],
+        storage: ["Almacenamiento", "El almacenamiento guarda los datos de la computadora..."],
+        power: ["Fuente de Poder", "La fuente de poder suministra energía eléctrica a los componentes..."]
+      },
+      en: {
+        title: "COMPUTER HARDWARE",
+        subtitle: "Main types of computer cases",
+        nav: ["CPU", "GPU", "RAM", "Motherboard", "Storage", "Power Supply"],
+        cpu: ["CPU (Central Processing Unit)", "The CPU is the brain of the computer, responsible for all operations and calculations..."],
+        gpu: ["GPU (Graphics Processing Unit)", "The GPU handles graphics processing and is essential for gaming and rendering tasks..."],
+        ram: ["RAM (Random Access Memory)", "RAM is the short-term memory of the computer..."],
+        motherboard: ["Motherboard", "The motherboard connects all components of the computer..."],
+        storage: ["Storage", "Storage keeps the computer’s data..."],
+        power: ["Power Supply", "The power supply provides electrical energy to the components..."]
+      },
+      ru: {
+        title: "КОМПЬЮТЕРНОЕ ЖЕЛЕЗО",
+        subtitle: "Основные виды корпусов компьютеров",
+        nav: ["ЦП", "ГП", "ОЗУ", "Материнская плата", "Хранение данных", "Блок питания"],
+        cpu: ["ЦП (Центральный процессор)", "ЦП — это мозг компьютера, отвечающий за все операции и вычисления..."],
+        gpu: ["ГП (Графический процессор)", "ГП отвечает за обработку графики и важен для игр и рендеринга..."],
+        ram: ["ОЗУ (Оперативная память)", "ОЗУ — это краткосрочная память компьютера..."],
+        motherboard: ["Материнская плата", "Материнская плата соединяет все компоненты компьютера..."],
+        storage: ["Хранение данных", "Хранилище сохраняет данные компьютера..."],
+        power: ["Блок питания", "Блок питания подает электрическую энергию на компоненты..."]
+      }
+    };
 
+    const elements = {
+      title: document.getElementById("title"),
+      subtitle: document.getElementById("subtitle"),
+      nav: [
+        document.getElementById("nav-cpu"),
+        document.getElementById("nav-gpu"),
+        document.getElementById("nav-ram"),
+        document.getElementById("nav-motherboard"),
+        document.getElementById("nav-storage"),
+        document.getElementById("nav-power")
+      ],
+      cpu: [document.getElementById("cpu-title"), document.getElementById("cpu-desc")],
+      gpu: [document.getElementById("gpu-title"), document.getElementById("gpu-desc")],
+      ram: [document.getElementById("ram-title"), document.getElementById("ram-desc")],
+      motherboard: [document.getElementById("motherboard-title"), document.getElementById("motherboard-desc")],
+      storage: [document.getElementById("storage-title"), document.getElementById("storage-desc")],
+      power: [document.getElementById("power-title"), document.getElementById("power-desc")]
+    };
+
+    document.getElementById("language").addEventListener("change", (e) => {
+      const lang = e.target.value;
+      const t = translations[lang];
+
+      elements.title.textContent = t.title;
+      elements.subtitle.textContent = t.subtitle;
+      elements.nav.forEach((el, i) => el.textContent = t.nav[i]);
+      elements.cpu[0].textContent = t.cpu[0];
+      elements.cpu[1].textContent = t.cpu[1];
+      elements.gpu[0].textContent = t.gpu[0];
+      elements.gpu[1].textContent = t.gpu[1];
+      elements.ram[0].textContent = t.ram[0];
+      elements.ram[1].textContent = t.ram[1];
+      elements.motherboard[0].textContent = t.motherboard[0];
+      elements.motherboard[1].textContent = t.motherboard[1];
+      elements.storage[0].textContent = t.storage[0];
+      elements.storage[1].textContent = t.storage[1];
+      elements.power[0].textContent = t.power[0];
+      elements.power[1].textContent = t.power[1];
+    });
+  </script>
 </body>
 </html>
-
