@@ -5,27 +5,13 @@
     <title>Hardware de Computadoras</title>
 
     <style>
+        /* --- Tu CSS Original --- */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #1a1a1a;
             color: #fff;
-        }
-
-        /* 🔹 Barra superior del selector de idioma */
-        .top-bar {
-            background-color: #000;
-            padding: 8px 20px;
-            text-align: right;
-        }
-
-        .top-bar select {
-            background-color: #333;
-            color: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            border: 1px solid #555;
         }
 
         header {
@@ -77,7 +63,23 @@
             padding: 20px;
         }
 
-        h2, h3, h4 {
+        h2 {
+            color: #00bcd4;
+            background-color: #212121;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid #00bcd4;
+        }
+        h3 {
+            text-align: center;
+            color: #00bcd4;
+            background-color: #212121;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid #00bcd4;
+        }
+        h4 {
+            text-align: center;
             color: #00bcd4;
             background-color: #212121;
             padding: 10px 20px;
@@ -85,19 +87,17 @@
             border: 2px solid #00bcd4;
         }
 
-        h3, h4 {
-            text-align: center;
-        }
-
         .component {
+            text-align: center;
             background-color: #333;
             padding: 15px;
             margin: 10px 0;
             border-radius: 5px;
             box-shadow: 0 0 10px rgb(0, 0, 0);
         }
-
+       
         .component a {
+            text-align: center;
             display: inline-block;
             color: #fff;
             background-color: #f44336;
@@ -117,6 +117,18 @@
             border-radius: 5px;
         }
 
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
         figure {
             text-align: center;
             margin: 20px 0;
@@ -128,166 +140,35 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
+        /* --- Estilo para el selector de idioma --- */
+        #language-select {
+            background-color: #00bcd4;
+            color: #1a1a1a;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-left: 20px;
+            cursor: pointer;
+        }
     </style>
 
     <script>
         function toggleInstallation(id) {
-            const div = document.getElementById(id);
-            div.style.display = div.style.display === "none" ? "block" : "none";
-        }
-
-        const translations = {
-            es: {
-                title: "HARDWARE DE LA COMPUTADORA",
-                cabinet: "Principales variantes de gabinetes de computadoras",
-                cpu: {
-                    title: "CPU (Unidad Central de Procesamiento)",
-                    desc: "La CPU es el cerebro de la computadora, responsable de realizar todas las operaciones y cálculos.",
-                    btn: "¿Cómo instalar la CPU?",
-                    install: "Instrucciones de Instalación de la CPU"
-                },
-                gpu: {
-                    title: "GPU (Unidad de Procesamiento Gráfico)",
-                    desc: "La GPU se encarga del procesamiento de gráficos y es esencial para tareas como el gaming.",
-                    btn: "¿Cómo instalar la GPU?",
-                    install: "Instrucciones de Instalación de la GPU"
-                },
-                ram: {
-                    title: "RAM (Memoria de Acceso Aleatorio)",
-                    desc: "La RAM es la memoria de corto plazo de la computadora.",
-                    btn: "¿Cómo instalar la RAM?",
-                    install: "Instrucciones de Instalación de la RAM"
-                },
-                motherboard: {
-                    title: "Motherboard (Tarjeta Madre)",
-                    desc: "La motherboard conecta todos los componentes de la computadora.",
-                    btn: "¿Cómo instalar la Motherboard?",
-                    install: "Instrucciones de Instalación de la Motherboard"
-                },
-                storage: {
-                    title: "Almacenamiento",
-                    desc: "El almacenamiento guarda los datos de la computadora.",
-                    btn: "¿Cómo instalar el almacenamiento?",
-                    install: "Instrucciones de Instalación del Almacenamiento"
-                },
-                power: {
-                    title: "Fuente de Poder",
-                    desc: "La fuente de poder suministra energía eléctrica a los componentes.",
-                    btn: "¿Cómo instalar la Fuente de Poder?",
-                    install: "Instrucciones de Instalación de la Fuente de Poder"
-                }
-            },
-            en: {
-                title: "COMPUTER HARDWARE",
-                cabinet: "Main types of computer cases",
-                cpu: {
-                    title: "CPU (Central Processing Unit)",
-                    desc: "The CPU is the brain of the computer, responsible for all operations and calculations.",
-                    btn: "How to install the CPU?",
-                    install: "CPU Installation Instructions"
-                },
-                gpu: {
-                    title: "GPU (Graphics Processing Unit)",
-                    desc: "The GPU handles graphic processing and is essential for gaming and rendering.",
-                    btn: "How to install the GPU?",
-                    install: "GPU Installation Instructions"
-                },
-                ram: {
-                    title: "RAM (Random Access Memory)",
-                    desc: "RAM is the short-term memory of the computer.",
-                    btn: "How to install RAM?",
-                    install: "RAM Installation Instructions"
-                },
-                motherboard: {
-                    title: "Motherboard",
-                    desc: "The motherboard connects all computer components.",
-                    btn: "How to install the Motherboard?",
-                    install: "Motherboard Installation Instructions"
-                },
-                storage: {
-                    title: "Storage",
-                    desc: "Storage keeps the computer’s data and files.",
-                    btn: "How to install storage?",
-                    install: "Storage Installation Instructions"
-                },
-                power: {
-                    title: "Power Supply",
-                    desc: "The power supply provides electrical energy to all components.",
-                    btn: "How to install the Power Supply?",
-                    install: "Power Supply Installation Instructions"
-                }
-            },
-            ru: {
-                title: "КОМПЬЮТЕРНОЕ ОБОРУДОВАНИЕ",
-                cabinet: "Основные виды корпусов компьютеров",
-                cpu: {
-                    title: "ЦПУ (Центральный процессор)",
-                    desc: "ЦПУ — это мозг компьютера, выполняющий все операции и вычисления.",
-                    btn: "Как установить ЦПУ?",
-                    install: "Инструкция по установке ЦПУ"
-                },
-                gpu: {
-                    title: "ГПУ (Графический процессор)",
-                    desc: "ГПУ отвечает за обработку графики и необходим для игр и рендеринга.",
-                    btn: "Как установить ГПУ?",
-                    install: "Инструкция по установке ГПУ"
-                },
-                ram: {
-                    title: "ОЗУ (Оперативная память)",
-                    desc: "ОЗУ — это кратковременная память компьютера.",
-                    btn: "Как установить ОЗУ?",
-                    install: "Инструкция по установке ОЗУ"
-                },
-                motherboard: {
-                    title: "Материнская плата",
-                    desc: "Материнская плата соединяет все компоненты компьютера.",
-                    btn: "Как установить материнскую плату?",
-                    install: "Инструкция по установке материнской платы"
-                },
-                storage: {
-                    title: "Накопитель",
-                    desc: "Накопитель хранит данные и файлы компьютера.",
-                    btn: "Как установить накопитель?",
-                    install: "Инструкция по установке накопителя"
-                },
-                power: {
-                    title: "Блок питания",
-                    desc: "Блок питания обеспечивает энергией все компоненты.",
-                    btn: "Как установить блок питания?",
-                    install: "Инструкция по установке блока питания"
-                }
+            const installationDiv = document.getElementById(id);
+            if (installationDiv.style.display === "none") {
+                installationDiv.style.display = "block";
+            } else {
+                installationDiv.style.display = "none";
             }
-        };
-
-        function changeLanguage(lang) {
-            const t = translations[lang];
-            document.getElementById("main-title").textContent = t.title;
-            document.getElementById("cabinet-title").textContent = t.cabinet;
-
-            const parts = ["cpu","gpu","ram","motherboard","storage","power"];
-            parts.forEach(p=>{
-                document.querySelector(`#${p} h2`).textContent = t[p].title;
-                document.querySelector(`#${p} p`).textContent = t[p].desc;
-                document.querySelector(`#${p} a`).textContent = t[p].btn;
-                const inst = document.querySelector(`#${p}-installation h3`);
-                if (inst) inst.textContent = t[p].install;
-            });
         }
     </script>
 </head>
 <body>
 
-<!-- 🔹 Selector de idioma -->
-<div class="top-bar">
-    <select onchange="changeLanguage(this.value)">
-        <option value="es">Español</option>
-        <option value="en">English</option>
-        <option value="ru">Русский</option>
-    </select>
-</div>
-
 <header>
-    <h1 id="main-title">HARDWARE DE LA COMPUTADORA</h1>
+    <h1>HARDWARE DE LA COMPUTADORA</h1>
 </header>
 
 <nav>
@@ -297,16 +178,19 @@
     <a href="#motherboard">Targeta Madre</a>
     <a href="#storage">Almacenamiento</a>
     <a href="#power-supply">Fuente de Poder</a>
+    
+    <select id="language-select">
+        <option value="es" selected>Español</option>
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+    </select>
 </nav>
 
-<h4 id="cabinet-title">Principales variantes de gabinetes de computadoras</h4>
+<h4>Principales variantes de gabinetes de computadoras</h4>
 <figure><img src="Ima/case.jpg" height="220px" width="100%" alt="case.jpg"></figure>
 
-<!-- 🔹 Aquí continúa tu código exactamente igual -->
-<!-- No se eliminó nada de imágenes ni estructura -->
 <div class="container">
 
-    <!-- CPU -->
     <section id="cpu" class="component">
         <h2>CPU (Unidad Central de Procesamiento)</h2>
         <p>La CPU es el cerebro de la computadora, responsable de realizar todas las operaciones y cálculos...</p>
@@ -328,7 +212,6 @@
         <figure><img src="Ima/cpu.jpg" height="220px" width="100%" alt="cpu.jpg"></figure>
     </section>
 
-    <!-- GPU -->
     <section id="gpu" class="component">
         <h2>GPU (Unidad de Procesamiento Gráfico)</h2>
         <p>La GPU se encarga del procesamiento de gráficos y es esencial para tareas como el gaming...</p>
@@ -347,7 +230,6 @@
         <figure><img src="Ima/asusrogstrix4090.jpg" height="220px" width="100%" alt="asusrogstrix4090.jpg"></figure>
     </section>
 
-    <!-- RAM -->
     <section id="ram" class="component">
         <h2>RAM (Memoria de Acceso Aleatorio)</h2>
         <p>La RAM es la memoria de corto plazo de la computadora...</p>
@@ -364,7 +246,6 @@
         <figure><img src="Ima/ramde.jpg" height="220px" width="100%" alt="ramde.jpg"></figure>
     </section>
 
-    <!-- MOTHERBOARD -->
     <section id="motherboard" class="component">
         <h2>Motherboard (Tarjeta Madre)</h2>
         <p>La motherboard conecta todos los componentes de la computadora...</p>
@@ -380,7 +261,6 @@
         <figure><img src="Ima/madre.jpeg" height="220px" width="100%" alt="madre.jpg"></figure>
     </section>
 
-    <!-- STORAGE -->
     <section id="storage" class="component">
         <h2>Almacenamiento</h2>
         <p>El almacenamiento guarda los datos de la computadora...</p>
@@ -396,7 +276,6 @@
         <figure><img src="Ima/m2.jpg" height="220px" width="100%" alt="m2.jpg"></figure>
     </section>
 
-    <!-- POWER SUPPLY -->
     <section id="power-supply" class="component">
         <h2>Fuente de Poder</h2>
         <p>La fuente de poder suministra energía eléctrica a los componentes...</p>
@@ -416,6 +295,237 @@
 
 <figure><img src=" Ima/pc gamer.jpg" height="220px" width="100%" alt="pc gamer.jpg"></figure>
 
+<script>
+    // ====================================================================================
+    // 1. MAPAS DE TEXTO (AQUÍ DEBES COMPLETAR TODAS LAS TRADUCCIONES FALTANTES)
+    //    CLAVE: El texto original en español (DEBE SER IDÉNTICO AL QUE ESTÁ EN EL HTML)
+    //    VALOR: La traducción al idioma correspondiente.
+    // ====================================================================================
+
+    // Textos en ESPAÑOL (Idioma Base)
+    const texts_es = {
+        "HARDWARE DE LA COMPUTADORA": "HARDWARE DE LA COMPUTADORA",
+        "CPU": "CPU",
+        "GPU": "GPU",
+        "RAM": "RAM",
+        "Targeta Madre": "Targeta Madre",
+        "Almacenamiento": "Almacenamiento",
+        "Fuente de Poder": "Fuente de Poder",
+        "Principales variantes de gabinetes de computadoras": "Principales variantes de gabinetes de computadoras",
+        "CPU (Unidad Central de Procesamiento)": "CPU (Unidad Central de Procesamiento)",
+        "La CPU es el cerebro de la computadora, responsable de realizar todas las operaciones y cálculos...": "La CPU es el cerebro de la computadora, responsable de realizar todas las operaciones y cálculos...",
+        "¿Cómo instalar la CPU?": "¿Cómo instalar la CPU?",
+        "Instrucciones de Instalación de la CPU": "Instrucciones de Instalación de la CPU",
+        "Tenemos que tomar desde el punto de vista que estamos ensamblando una computadora no desde cero.": "Tenemos que tomar desde el punto de vista que estamos ensamblando una computadora no desde cero.",
+        "Primero colocamos la tarjeta madre en un lugar cómodo...": "Primero colocamos la tarjeta madre en un lugar cómodo...",
+        "Localiza el socket de la CPU en la placa base.": "Localiza el socket de la CPU en la placa base.",
+        "Levanta la palanca del socket e inserta la CPU con cuidado, alineando los pines.": "Levanta la palanca del socket e inserta la CPU con cuidado, alineando los pines.",
+        "Cierra la palanca y aplica la pasta térmica en la CPU.": "Cierra la palanca y aplica la pasta térmica en la CPU.",
+        "Instala el disipador de calor y el ventilador encima de la CPU.": "Instala el disipador de calor y el ventilador encima de la CPU.",
+        "Cierra la carcasa y enciende la computadora.": "Cierra la carcasa y enciende la computadora.",
+        "GPU (Unidad de Procesamiento Gráfico)": "GPU (Unidad de Procesamiento Gráfico)",
+        "La GPU se encarga del procesamiento de gráficos y es esencial para tareas como el gaming...": "La GPU se encarga del procesamiento de gráficos y es esencial para tareas como el gaming...",
+        "¿Cómo instalar la GPU?": "¿Cómo instalar la GPU?",
+        "Instrucciones de Instalación de la GPU": "Instrucciones de Instalación de la GPU",
+        "Apaga y desenchufa la computadora.": "Apaga y desenchufa la computadora.",
+        "Abre la carcasa y localiza la ranura PCIe.": "Abre la carcasa y localiza la ranura PCIe.",
+        "Inserta la GPU en la ranura PCIe y asegúrala con un tornillo.": "Inserta la GPU en la ranura PCIe y asegúrala con un tornillo.",
+        "Conecta los cables de alimentación necesarios.": "Conecta los cables de alimentación necesarios.",
+        "Instala los controladores desde el sitio del fabricante.": "Instala los controladores desde el sitio del fabricante.",
+        "RAM (Memoria de Acceso Aleatorio)": "RAM (Memoria de Acceso Aleatorio)",
+        "La RAM es la memoria de corto plazo de la computadora...": "La RAM es la memoria de corto plazo de la computadora...",
+        "¿Cómo instalar la RAM?": "¿Cómo instalar la RAM?",
+        "Instrucciones de Instalación de la RAM": "Instrucciones de Instalación de la RAM",
+        "Abre la carcasa y localiza las ranuras de RAM.": "Abre la carcasa y localiza las ranuras de RAM.",
+        "Abre los clips e inserta el módulo hasta que encaje.": "Abre los clips e inserta el módulo hasta que encaje.",
+        "Motherboard (Tarjeta Madre)": "Motherboard (Tarjeta Madre)",
+        "La motherboard conecta todos los componentes de la computadora...": "La motherboard conecta todos los componentes de la computadora...",
+        "¿Cómo instalar la Motherboard?": "¿Cómo instalar la Motherboard?",
+        "Instrucciones de Instalación de la Motherboard": "Instrucciones de Instalación de la Motherboard",
+        "Abre la carcasa y coloca la motherboard alineada.": "Abre la carcasa y coloca la motherboard alineada.",
+        "Asegúrala con tornillos y conecta los cables de alimentación.": "Asegúrala con tornillos y conecta los cables de alimentación.",
+        "Almacenamiento": "Almacenamiento",
+        "El almacenamiento guarda los datos de la computadora...": "El almacenamiento guarda los datos de la computadora...",
+        "¿Cómo instalar el almacenamiento?": "¿Cómo instalar el almacenamiento?",
+        "Instrucciones de Instalación del Almacenamiento": "Instrucciones de Instalación del Almacenamiento",
+        "Abre la carcasa y localiza la bahía o ranura M.2.": "Abre la carcasa y localiza la bahía o ranura M.2.",
+        "Conecta los cables o atornilla el SSD/HDD según corresponda.": "Conecta los cables o atornilla el SSD/HDD según corresponda.",
+        "Fuente de Poder": "Fuente de Poder",
+        "La fuente de poder suministra energía eléctrica a los componentes...": "La fuente de poder suministra energía eléctrica a los componentes...",
+        "¿Cómo instalar la Fuente de Poder?": "¿Cómo instalar la Fuente de Poder?",
+        "Instrucciones de Instalación de la Fuente de Poder": "Instrucciones de Instalación de la Fuente de Poder",
+        "Coloca la fuente en su bahía y asegúrala con tornillos.": "Coloca la fuente en su bahía y asegúrala con tornillos.",
+        "Conecta los cables de 24 y 8 pines a la motherboard.": "Conecta los cables de 24 y 8 pines a la motherboard.",
+    };
+
+    // Textos en INGLÉS (Inglés)
+    const texts_en = {
+        "HARDWARE DE LA COMPUTADORA": "COMPUTER HARDWARE",
+        "CPU": "CPU",
+        "GPU": "GPU",
+        "RAM": "RAM",
+        "Targeta Madre": "Motherboard",
+        "Almacenamiento": "Storage",
+        "Fuente de Poder": "Power Supply",
+        "Principales variantes de gabinetes de computadoras": "Main PC Case Variants",
+        "CPU (Unidad Central de Procesamiento)": "CPU (Central Processing Unit)",
+        "La CPU es el cerebro de la computadora, responsable de realizar todas las operaciones y cálculos...": "The CPU is the brain of the computer, responsible for all operations and calculations...",
+        "¿Cómo instalar la CPU?": "How to install the CPU?",
+        "Instrucciones de Instalación de la CPU": "CPU Installation Instructions",
+        "Tenemos que tomar desde el punto de vista que estamos ensamblando una computadora no desde cero.": "We must take the point of view that we are assembling a computer, not from scratch.",
+        "Primero colocamos la tarjeta madre en un lugar cómodo...": "First we place the motherboard in a comfortable place...",
+        "Localiza el socket de la CPU en la placa base.": "Locate the CPU socket on the motherboard.",
+        "Levanta la palanca del socket e inserta la CPU con cuidado, alineando los pines.": "Lift the socket lever and carefully insert the CPU, aligning the pins.",
+        "Cierra la palanca y aplica la pasta térmica en la CPU.": "Close the lever and apply thermal paste to the CPU.",
+        "Instala el disipador de calor y el ventilador encima de la CPU.": "Install the heat sink and fan on top of the CPU.",
+        "Cierra la carcasa y enciende la computadora.": "Close the case and turn on the computer.",
+        "GPU (Unidad de Procesamiento Gráfico)": "GPU (Graphics Processing Unit)",
+        "La GPU se encarga del procesamiento de gráficos y es esencial para tareas como el gaming...": "The GPU handles graphics processing and is essential for tasks like gaming...",
+        "¿Cómo instalar la GPU?": "How to install the GPU?",
+        "Instrucciones de Instalación de la GPU": "GPU Installation Instructions",
+        "Apaga y desenchufa la computadora.": "Turn off and unplug the computer.",
+        "Abre la carcasa y localiza la ranura PCIe.": "Open the case and locate the PCIe slot.",
+        "Inserta la GPU en la ranura PCIe y asegúrala con un tornillo.": "Insert the GPU into the PCIe slot and secure it with a screw.",
+        "Conecta los cables de alimentación necesarios.": "Connect the necessary power cables.",
+        "Instala los controladores desde el sitio del fabricante.": "Install the drivers from the manufacturer's website.",
+        "RAM (Memoria de Acceso Aleatorio)": "RAM (Random Access Memory)",
+        "La RAM es la memoria de corto plazo de la computadora...": "RAM is the computer's short-term memory...",
+        "¿Cómo instalar la RAM?": "How to install RAM?",
+        "Instrucciones de Instalación de la RAM": "RAM Installation Instructions",
+        "Abre la carcasa y localiza las ranuras de RAM.": "Open the case and locate the RAM slots.",
+        "Abre los clips e inserta el módulo hasta que encaje.": "Open the clips and insert the module until it clicks into place.",
+        "Motherboard (Tarjeta Madre)": "Motherboard (Main Board)",
+        "La motherboard conecta todos los componentes de la computadora...": "The motherboard connects all the computer's components...",
+        "¿Cómo instalar la Motherboard?": "How to install the Motherboard?",
+        "Instrucciones de Instalación de la Motherboard": "Motherboard Installation Instructions",
+        "Abre la carcasa y coloca la motherboard alineada.": "Open the case and align the motherboard.",
+        "Asegúrala con tornillos y conecta los cables de alimentación.": "Secure it with screws and connect the power cables.",
+        "Almacenamiento": "Storage",
+        "El almacenamiento guarda los datos de la computadora...": "Storage saves the computer's data...",
+        "¿Cómo instalar el almacenamiento?": "How to install the Storage?",
+        "Instrucciones de Instalación del Almacenamiento": "Storage Installation Instructions",
+        "Abre la carcasa y localiza la bahía o ranura M.2.": "Open the case and locate the bay or M.2 slot.",
+        "Conecta los cables o atornilla el SSD/HDD según corresponda.": "Connect the cables or screw the SSD/HDD as appropriate.",
+        "Fuente de Poder": "Power Supply",
+        "La fuente de poder suministra energía eléctrica a los componentes...": "The power supply provides electrical energy to the components...",
+        "¿Cómo instalar la Fuente de Poder?": "How to install the Power Supply?",
+        "Instrucciones de Instalación de la Fuente de Poder": "Power Supply Installation Instructions",
+        "Coloca la fuente en su bahía y asegúrala con tornillos.": "Place the power supply in its bay and secure it with screws.",
+        "Conecta los cables de 24 y 8 pines a la motherboard.": "Connect the 24 and 8-pin cables to the motherboard.",
+    };
+
+    // Textos en RUSO (Ruso)
+    const texts_ru = {
+        "HARDWARE DE LA COMPUTADORA": "КОМПЬЮТЕРНОЕ ОБОРУДОВАНИЕ",
+        "CPU": "ЦПУ", // ЦПУ (Tsentral'nyy protsessor)
+        "GPU": "ГПУ", // ГПУ (Graficheskiy protsessor)
+        "RAM": "ОЗУ", // ОЗУ (Operativnaya pamyat')
+        "Targeta Madre": "Материнская плата",
+        "Almacenamiento": "Хранение данных",
+        "Fuente de Poder": "Блок питания",
+        "Principales variantes de gabinetes de computadoras": "Основные варианты корпусов ПК",
+        "CPU (Unidad Central de Procesamiento)": "ЦПУ (Центральный процессор)",
+        "La CPU es el cerebro de la computadora, responsable de realizar todas las operaciones y cálculos...": "ЦП — это мозг компьютера, отвечающий за выполнение всех операций и вычислений...",
+        "¿Cómo instalar la CPU?": "Как установить ЦПУ?",
+        "Instrucciones de Instalación de la CPU": "Инструкции по установке ЦПУ",
+        "Tenemos que tomar desde el punto de vista que estamos ensamblando una computadora no desde cero.": "Мы должны исходить из того, что собираем компьютер не с нуля.",
+        "Primero colocamos la tarjeta madre en un lugar cómodo...": "Сначала помещаем материнскую плату в удобное место...",
+        "Localiza el socket de la CPU en la placa base.": "Найдите сокет ЦПУ на материнской плате.",
+        "Levanta la palanca del socket e inserta la CPU con cuidado, alineando los pines.": "Поднимите рычаг сокета и осторожно вставьте ЦПУ, совместив контакты.",
+        "Cierra la palanca y aplica la pasta térmica en la CPU.": "Закройте рычаг и нанесите термопасту на ЦПУ.",
+        "Instala el disipador de calor y el ventilador encima de la CPU.": "Установите радиатор и вентилятор поверх ЦПУ.",
+        "Cierra la carcasa y enciende la computadora.": "Закройте корпус и включите компьютер.",
+        "GPU (Unidad de Procesamiento Gráfico)": "ГПУ (Графический процессор)",
+        "La GPU se encarga del procesamiento de gráficos y es esencial para tareas como el gaming...": "ГПУ отвечает за обработку графики и необходим для таких задач, как игры...",
+        "¿Cómo instalar la GPU?": "Как установить ГПУ?",
+        "Instrucciones de Instalación de la GPU": "Инструкции по установке ГПУ",
+        "Apaga y desenchufa la computadora.": "Выключите компьютер и отсоедините его от сети.",
+        "Abre la carcasa y localiza la ranura PCIe.": "Откройте корпус и найдите слот PCIe.",
+        "Inserta la GPU en la ranura PCIe y asegúrala con un tornillo.": "Вставьте ГПУ в слот PCIe и закрепите винтом.",
+        "Conecta los cables de alimentación necesarios.": "Подключите необходимые кабели питания.",
+        "Instala los controladores desde el sitio del fabricante.": "Установите драйверы с сайта производителя.",
+        "RAM (Memoria de Acceso Aleatorio)": "ОЗУ (Оперативное запоминающее устройство)",
+        "La RAM es la memoria de corto plazo de la computadora...": "ОЗУ — это кратковременная память компьютера...",
+        "¿Cómo instalar la RAM?": "Как установить ОЗУ?",
+        "Instrucciones de Instalación de la RAM": "Инструкции по установке ОЗУ",
+        "Abre la carcasa y localiza las ranuras de RAM.": "Откройте корпус и найдите слоты ОЗУ.",
+        "Abre los clips e inserta el módulo hasta que encaje.": "Откройте зажимы и вставляйте модуль, пока он не защелкнется.",
+        "Motherboard (Tarjeta Madre)": "Материнская плата",
+        "La motherboard conecta todos los componentes de la computadora...": "Материнская плата соединяет все компоненты компьютера...",
+        "¿Cómo instalar la Motherboard?": "Как установить материнскую плату?",
+        "Instrucciones de Instalación de la Motherboard": "Инструкции по установке материнской платы",
+        "Abre la carcasa y coloca la motherboard alineada.": "Откройте корпус и выровняйте материнскую плату.",
+        "Asegúrala con tornillos y conecta los cables de alimentación.": "Закрепите ее винтами и подключите кабели питания.",
+        "Almacenamiento": "Хранение данных",
+        "El almacenamiento guarda los datos de la computadora...": "Хранилище сохраняет данные компьютера...",
+        "¿Cómo instalar el almacenamiento?": "Как установить хранилище?",
+        "Instrucciones de Instalación del Almacenamiento": "Инструкции по установке хранилища",
+        "Abre la carcasa y localiza la bahía o ranura M.2.": "Откройте корпус y найдите отсек o ranura M.2.",
+        "Conecta los cables o atornilla el SSD/HDD según corresponda.": "Подключите кабели o прикрутите SSD/HDD соответствующим образом.",
+        "Fuente de Poder": "Блок питания",
+        "La fuente de poder suministra energía eléctrica a los componentes...": "Блок питания обеспечивает электрической энергией компоненты...",
+        "¿Cómo instalar la Fuente de Poder?": "Как установить блок питания?",
+        "Instrucciones de Instalación de la Fuente de Poder": "Инструкции по установке блока питания",
+        "Coloca la fuente en su bahía y asegúrala con tornillos.": "Поместите блок питания в его отсек и закрепите винтами.",
+        "Conecta los cables de 24 y 8 pines a la motherboard.": "Подключите 24- и 8-контактные кабели к материнской плате.",
+    };
+
+    // Objeto que mapea los códigos de idioma a sus textos
+    const languageMaps = {
+        'es': texts_es,
+        'en': texts_en,
+        'ru': texts_ru
+    };
+
+    let currentLanguage = 'es'; // Establece el idioma predeterminado
+    const langSelect = document.getElementById('language-select');
+
+    // Función principal para cambiar el texto de la página
+    function changeLanguage(targetLanguage) {
+        const targetTexts = languageMaps[targetLanguage];
+        const sourceTexts = languageMaps[currentLanguage];
+
+        // 1. Obtener todos los elementos que potencialmente contienen texto
+        const elementosConTexto = document.querySelectorAll(
+            'h1, h2, h3, h4, h5, h6, p, li, span, a, button, div, strong, em, label, textarea'
+        );
+
+        elementosConTexto.forEach(elemento => {
+            const textoActual = elemento.textContent.trim();
+
+            // Buscar la clave de traducción (el texto original en español) usando el texto actual.
+            let key = Object.keys(sourceTexts).find(key => sourceTexts[key] === textoActual);
+
+            // Si no se encuentra en el idioma fuente, el texto actual se convierte en la clave.
+            if (!key) {
+                key = textoActual;
+            }
+
+            // 2. Reemplazar si la clave existe en el mapa de idioma objetivo
+            if (targetTexts.hasOwnProperty(key)) {
+                elemento.textContent = targetTexts[key];
+            }
+        });
+
+        // 3. Actualizar la interfaz (atributo lang)
+        document.documentElement.lang = targetLanguage;
+        currentLanguage = targetLanguage;
+        console.log("Idioma cambiado a: " + targetLanguage.toUpperCase());
+    }
+
+    // Inicializa los eventos del menú desplegable
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ejecuta la función cuando el valor del selector cambia
+        langSelect.addEventListener('change', function() {
+            const newLanguage = this.value;
+            if (newLanguage !== currentLanguage) {
+                changeLanguage(newLanguage);
+            }
+        });
+        
+        // Carga el idioma inicial
+        changeLanguage(langSelect.value); 
+    });
+</script>
 </body>
 </html>
-
