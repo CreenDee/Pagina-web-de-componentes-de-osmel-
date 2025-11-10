@@ -77,23 +77,7 @@
             padding: 20px;
         }
 
-        h2 {
-            color: #00bcd4;
-            background-color: #212121;
-            padding: 10px 20px;
-            border-radius: 10px;
-            border: 2px solid #00bcd4;
-        }
-        h3 {
-            text-align: center;
-            color: #00bcd4;
-            background-color: #212121;
-            padding: 10px 20px;
-            border-radius: 10px;
-            border: 2px solid #00bcd4;
-        }
-        h4 {
-            text-align: center;
+        h2, h3, h4 {
             color: #00bcd4;
             background-color: #212121;
             padding: 10px 20px;
@@ -101,8 +85,11 @@
             border: 2px solid #00bcd4;
         }
 
-        .component {
+        h3, h4 {
             text-align: center;
+        }
+
+        .component {
             background-color: #333;
             padding: 15px;
             margin: 10px 0;
@@ -130,12 +117,12 @@
             border-radius: 5px;
         }
 
-        .image-container, figure {
+        figure {
             text-align: center;
             margin: 20px 0;
         }
 
-        .image-container img, figure img {
+        figure img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
@@ -145,59 +132,152 @@
 
     <script>
         function toggleInstallation(id) {
-            const installationDiv = document.getElementById(id);
-            installationDiv.style.display = installationDiv.style.display === "none" ? "block" : "none";
+            const div = document.getElementById(id);
+            div.style.display = div.style.display === "none" ? "block" : "none";
         }
 
-        // 🔹 Traducciones
         const translations = {
             es: {
                 title: "HARDWARE DE LA COMPUTADORA",
-                cpu: "CPU (Unidad Central de Procesamiento)",
-                gpu: "GPU (Unidad de Procesamiento Gráfico)",
-                ram: "RAM (Memoria de Acceso Aleatorio)",
-                motherboard: "Motherboard (Tarjeta Madre)",
-                storage: "Almacenamiento",
-                power: "Fuente de Poder",
-                cabinet: "Principales variantes de gabinetes de computadoras"
+                cabinet: "Principales variantes de gabinetes de computadoras",
+                cpu: {
+                    title: "CPU (Unidad Central de Procesamiento)",
+                    desc: "La CPU es el cerebro de la computadora, responsable de realizar todas las operaciones y cálculos.",
+                    btn: "¿Cómo instalar la CPU?",
+                    install: "Instrucciones de Instalación de la CPU"
+                },
+                gpu: {
+                    title: "GPU (Unidad de Procesamiento Gráfico)",
+                    desc: "La GPU se encarga del procesamiento de gráficos y es esencial para tareas como el gaming.",
+                    btn: "¿Cómo instalar la GPU?",
+                    install: "Instrucciones de Instalación de la GPU"
+                },
+                ram: {
+                    title: "RAM (Memoria de Acceso Aleatorio)",
+                    desc: "La RAM es la memoria de corto plazo de la computadora.",
+                    btn: "¿Cómo instalar la RAM?",
+                    install: "Instrucciones de Instalación de la RAM"
+                },
+                motherboard: {
+                    title: "Motherboard (Tarjeta Madre)",
+                    desc: "La motherboard conecta todos los componentes de la computadora.",
+                    btn: "¿Cómo instalar la Motherboard?",
+                    install: "Instrucciones de Instalación de la Motherboard"
+                },
+                storage: {
+                    title: "Almacenamiento",
+                    desc: "El almacenamiento guarda los datos de la computadora.",
+                    btn: "¿Cómo instalar el almacenamiento?",
+                    install: "Instrucciones de Instalación del Almacenamiento"
+                },
+                power: {
+                    title: "Fuente de Poder",
+                    desc: "La fuente de poder suministra energía eléctrica a los componentes.",
+                    btn: "¿Cómo instalar la Fuente de Poder?",
+                    install: "Instrucciones de Instalación de la Fuente de Poder"
+                }
             },
             en: {
                 title: "COMPUTER HARDWARE",
-                cpu: "CPU (Central Processing Unit)",
-                gpu: "GPU (Graphics Processing Unit)",
-                ram: "RAM (Random Access Memory)",
-                motherboard: "Motherboard",
-                storage: "Storage",
-                power: "Power Supply",
-                cabinet: "Main types of computer cases"
+                cabinet: "Main types of computer cases",
+                cpu: {
+                    title: "CPU (Central Processing Unit)",
+                    desc: "The CPU is the brain of the computer, responsible for all operations and calculations.",
+                    btn: "How to install the CPU?",
+                    install: "CPU Installation Instructions"
+                },
+                gpu: {
+                    title: "GPU (Graphics Processing Unit)",
+                    desc: "The GPU handles graphic processing and is essential for gaming and rendering.",
+                    btn: "How to install the GPU?",
+                    install: "GPU Installation Instructions"
+                },
+                ram: {
+                    title: "RAM (Random Access Memory)",
+                    desc: "RAM is the short-term memory of the computer.",
+                    btn: "How to install RAM?",
+                    install: "RAM Installation Instructions"
+                },
+                motherboard: {
+                    title: "Motherboard",
+                    desc: "The motherboard connects all computer components.",
+                    btn: "How to install the Motherboard?",
+                    install: "Motherboard Installation Instructions"
+                },
+                storage: {
+                    title: "Storage",
+                    desc: "Storage keeps the computer’s data and files.",
+                    btn: "How to install storage?",
+                    install: "Storage Installation Instructions"
+                },
+                power: {
+                    title: "Power Supply",
+                    desc: "The power supply provides electrical energy to all components.",
+                    btn: "How to install the Power Supply?",
+                    install: "Power Supply Installation Instructions"
+                }
             },
             ru: {
                 title: "КОМПЬЮТЕРНОЕ ОБОРУДОВАНИЕ",
-                cpu: "ЦПУ (Центральный процессор)",
-                gpu: "ГПУ (Графический процессор)",
-                ram: "ОЗУ (Оперативная память)",
-                motherboard: "Материнская плата",
-                storage: "Накопитель",
-                power: "Блок питания",
-                cabinet: "Основные виды корпусов компьютеров"
+                cabinet: "Основные виды корпусов компьютеров",
+                cpu: {
+                    title: "ЦПУ (Центральный процессор)",
+                    desc: "ЦПУ — это мозг компьютера, выполняющий все операции и вычисления.",
+                    btn: "Как установить ЦПУ?",
+                    install: "Инструкция по установке ЦПУ"
+                },
+                gpu: {
+                    title: "ГПУ (Графический процессор)",
+                    desc: "ГПУ отвечает за обработку графики и необходим для игр и рендеринга.",
+                    btn: "Как установить ГПУ?",
+                    install: "Инструкция по установке ГПУ"
+                },
+                ram: {
+                    title: "ОЗУ (Оперативная память)",
+                    desc: "ОЗУ — это кратковременная память компьютера.",
+                    btn: "Как установить ОЗУ?",
+                    install: "Инструкция по установке ОЗУ"
+                },
+                motherboard: {
+                    title: "Материнская плата",
+                    desc: "Материнская плата соединяет все компоненты компьютера.",
+                    btn: "Как установить материнскую плату?",
+                    install: "Инструкция по установке материнской платы"
+                },
+                storage: {
+                    title: "Накопитель",
+                    desc: "Накопитель хранит данные и файлы компьютера.",
+                    btn: "Как установить накопитель?",
+                    install: "Инструкция по установке накопителя"
+                },
+                power: {
+                    title: "Блок питания",
+                    desc: "Блок питания обеспечивает энергией все компоненты.",
+                    btn: "Как установить блок питания?",
+                    install: "Инструкция по установке блока питания"
+                }
             }
         };
 
         function changeLanguage(lang) {
-            document.getElementById("main-title").textContent = translations[lang].title;
-            document.querySelector("#cpu h2").textContent = translations[lang].cpu;
-            document.querySelector("#gpu h2").textContent = translations[lang].gpu;
-            document.querySelector("#ram h2").textContent = translations[lang].ram;
-            document.querySelector("#motherboard h2").textContent = translations[lang].motherboard;
-            document.querySelector("#storage h2").textContent = translations[lang].storage;
-            document.querySelector("#power-supply h2").textContent = translations[lang].power;
-            document.getElementById("cabinet-title").textContent = translations[lang].cabinet;
+            const t = translations[lang];
+            document.getElementById("main-title").textContent = t.title;
+            document.getElementById("cabinet-title").textContent = t.cabinet;
+
+            const parts = ["cpu","gpu","ram","motherboard","storage","power"];
+            parts.forEach(p=>{
+                document.querySelector(`#${p} h2`).textContent = t[p].title;
+                document.querySelector(`#${p} p`).textContent = t[p].desc;
+                document.querySelector(`#${p} a`).textContent = t[p].btn;
+                const inst = document.querySelector(`#${p}-installation h3`);
+                if (inst) inst.textContent = t[p].install;
+            });
         }
     </script>
 </head>
 <body>
 
-<!-- 🔹 Barra superior con selector -->
+<!-- 🔹 Selector de idioma -->
 <div class="top-bar">
     <select onchange="changeLanguage(this.value)">
         <option value="es">Español</option>
@@ -222,27 +302,120 @@
 <h4 id="cabinet-title">Principales variantes de gabinetes de computadoras</h4>
 <figure><img src="Ima/case.jpg" height="220px" width="100%" alt="case.jpg"></figure>
 
-<!-- 🔹 Todo tu contenido original debajo (sin tocar nada) -->
+<!-- 🔹 Aquí continúa tu código exactamente igual -->
+<!-- No se eliminó nada de imágenes ni estructura -->
 <div class="container">
+
     <!-- CPU -->
     <section id="cpu" class="component">
         <h2>CPU (Unidad Central de Procesamiento)</h2>
-        <p>La CPU es el cerebro de la computadora...</p>
+        <p>La CPU es el cerebro de la computadora, responsable de realizar todas las operaciones y cálculos...</p>
         <a href="javascript:void(0);" onclick="toggleInstallation('cpu-installation')">¿Cómo instalar la CPU?</a>
         <div id="cpu-installation" class="installation">
             <h3>Instrucciones de Instalación de la CPU</h3>
             <ol>
-                <li>Tenemos que tomar desde el punto de vista...</li>
+                <li>Tenemos que tomar desde el punto de vista que estamos ensamblando una computadora no desde cero.</li>
+                <li>Primero colocamos la tarjeta madre en un lugar cómodo...</li>
+                <li>Localiza el socket de la CPU en la placa base.</li>
+                <li>Levanta la palanca del socket e inserta la CPU con cuidado, alineando los pines.</li>
+                <li>Cierra la palanca y aplica la pasta térmica en la CPU.</li>
+                <li>Instala el disipador de calor y el ventilador encima de la CPU.</li>
+                <li>Cierra la carcasa y enciende la computadora.</li>
             </ol>
             <figure><img src="Ima/cpu1.jpg" height="220px" width="100%" alt="cpu1.jpg"></figure>
+            <figure><img src="Ima/cpu2.jpg" height="220px" width="100%" alt="cpu2.jpg"></figure>
         </div>
         <figure><img src="Ima/cpu.jpg" height="220px" width="100%" alt="cpu.jpg"></figure>
     </section>
 
-    <!-- ... resto del código exactamente igual ... -->
+    <!-- GPU -->
+    <section id="gpu" class="component">
+        <h2>GPU (Unidad de Procesamiento Gráfico)</h2>
+        <p>La GPU se encarga del procesamiento de gráficos y es esencial para tareas como el gaming...</p>
+        <a href="javascript:void(0);" onclick="toggleInstallation('gpu-installation')">¿Cómo instalar la GPU?</a>
+        <div id="gpu-installation" class="installation">
+            <h3>Instrucciones de Instalación de la GPU</h3>
+            <ol>
+                <li>Apaga y desenchufa la computadora.</li>
+                <li>Abre la carcasa y localiza la ranura PCIe.</li>
+                <li>Inserta la GPU en la ranura PCIe y asegúrala con un tornillo.</li>
+                <li>Conecta los cables de alimentación necesarios.</li>
+                <li>Instala los controladores desde el sitio del fabricante.</li>
+            </ol>
+            <figure><img src="Ima/grafica.jpeg" height="220px" width="100%" alt="grafica.jpeg"></figure>
+        </div>
+        <figure><img src="Ima/asusrogstrix4090.jpg" height="220px" width="100%" alt="asusrogstrix4090.jpg"></figure>
+    </section>
+
+    <!-- RAM -->
+    <section id="ram" class="component">
+        <h2>RAM (Memoria de Acceso Aleatorio)</h2>
+        <p>La RAM es la memoria de corto plazo de la computadora...</p>
+        <a href="javascript:void(0);" onclick="toggleInstallation('ram-installation')">¿Cómo instalar la RAM?</a>
+        <div id="ram-installation" class="installation">
+            <h3>Instrucciones de Instalación de la RAM</h3>
+            <ol>
+                <li>Apaga y desenchufa la computadora.</li>
+                <li>Abre la carcasa y localiza las ranuras de RAM.</li>
+                <li>Abre los clips e inserta el módulo hasta que encaje.</li>
+            </ol>
+            <figure><img src="Ima/ram.jpg" height="220px" width="100%" alt="ram.jpg"></figure>
+        </div>
+        <figure><img src="Ima/ramde.jpg" height="220px" width="100%" alt="ramde.jpg"></figure>
+    </section>
+
+    <!-- MOTHERBOARD -->
+    <section id="motherboard" class="component">
+        <h2>Motherboard (Tarjeta Madre)</h2>
+        <p>La motherboard conecta todos los componentes de la computadora...</p>
+        <a href="javascript:void(0);" onclick="toggleInstallation('motherboard-installation')">¿Cómo instalar la Motherboard?</a>
+        <div id="motherboard-installation" class="installation">
+            <h3>Instrucciones de Instalación de la Motherboard</h3>
+            <ol>
+                <li>Abre la carcasa y coloca la motherboard alineada.</li>
+                <li>Asegúrala con tornillos y conecta los cables de alimentación.</li>
+            </ol>
+            <figure><img src="Ima/s9-u05-05-product-shot-motherboard-original-rwd.jpg.rendition.intel.web.1920.1080.jpg" height="220px" width="100%" alt="motherboard"></figure>
+        </div>
+        <figure><img src="Ima/madre.jpeg" height="220px" width="100%" alt="madre.jpg"></figure>
+    </section>
+
+    <!-- STORAGE -->
+    <section id="storage" class="component">
+        <h2>Almacenamiento</h2>
+        <p>El almacenamiento guarda los datos de la computadora...</p>
+        <a href="javascript:void(0);" onclick="toggleInstallation('storage-installation')">¿Cómo instalar el almacenamiento?</a>
+        <div id="storage-installation" class="installation">
+            <h3>Instrucciones de Instalación del Almacenamiento</h3>
+            <ol>
+                <li>Abre la carcasa y localiza la bahía o ranura M.2.</li>
+                <li>Conecta los cables o atornilla el SSD/HDD según corresponda.</li>
+            </ol>
+            <figure><img src="Ima/s9-u05-33-install-storage-original-rwd.jpg.rendition.intel.web.1072.603.jpg" height="220px" width="100%" alt="almacenamiento"></figure>
+        </div>
+        <figure><img src="Ima/m2.jpg" height="220px" width="100%" alt="m2.jpg"></figure>
+    </section>
+
+    <!-- POWER SUPPLY -->
+    <section id="power-supply" class="component">
+        <h2>Fuente de Poder</h2>
+        <p>La fuente de poder suministra energía eléctrica a los componentes...</p>
+        <a href="javascript:void(0);" onclick="toggleInstallation('power-supply-installation')">¿Cómo instalar la Fuente de Poder?</a>
+        <div id="power-supply-installation" class="installation">
+            <h3>Instrucciones de Instalación de la Fuente de Poder</h3>
+            <ol>
+                <li>Coloca la fuente en su bahía y asegúrala con tornillos.</li>
+                <li>Conecta los cables de 24 y 8 pines a la motherboard.</li>
+            </ol>
+            <figure><img src="Ima/fuenteinstalando.jpg" height="220px" width="100%" alt="fuenteinstalando.jpg"></figure>
+        </div>
+        <figure><img src="Ima/fuentee.jpg" height="220px" width="100%" alt="fuentee.jpg"></figure>
+    </section>
+
 </div>
 
-<figure><img src="Ima/pc gamer.jpg" height="220px" width="100%" alt="pc gamer.jpg"></figure>
+<figure><img src=" Ima/pc gamer.jpg" height="220px" width="100%" alt="pc gamer.jpg"></figure>
 
 </body>
 </html>
+
